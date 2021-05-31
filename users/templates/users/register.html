@@ -1,0 +1,59 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+
+<form method="POST" autocomplete="off" novalidate>
+    {% csrf_token %}
+
+<h1 id="sh"> SignUp </h1><br>
+
+<div id="fcontainer">
+
+  <p>
+    <div id="ul">
+    {{ form.username.label }}
+    </div>
+    {{ form.username }}
+
+   <div id="ue"> {{ form.username.errors|striptags }} </div>
+  </p>
+
+ <p>
+    <div id="el">
+    {{ form.email.label }}
+    </div>
+    {{ form.email }}
+
+    <div id="ee"> {{ form.email.errors|striptags }} </div>
+ </p>
+
+ <p>
+    <div id="p1l">
+    {{ form.password1.label }}
+    </div>
+    {{ form.password1}}
+
+    <div id="p1e"> {{ form.password1.errors|striptags }} </div>
+ </p>  
+
+ 
+ <p>
+    <div id="p2l">
+    {{ form.password2.label }}
+    </div>
+    {{ form.password2 }}
+
+    <div id="p2e"> {{ form.password2.errors|striptags }} </div>
+ </p>
+
+    <input type="submit" value="SignUp" id="sb">
+
+
+</div><br><br>
+
+<span id="aac"> Already have an account <a href=" {% url 'login' %} ">Login</a></span>
+</form>
+<br><br><br>
+
+{% endblock %}
+

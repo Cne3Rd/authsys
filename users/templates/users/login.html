@@ -1,0 +1,57 @@
+{% extends "users/base.html" %}
+
+
+{% block content %}
+
+ <form method="POST" autocomplete="off" novalidate>
+
+    {% csrf_token %}
+
+    <h1 id="sh"> Login </h1><br>
+
+    {% if messages %}
+
+    {% for message in messages %}
+  <span  style="color:#fff; background-color:red; padding:4px; text-align:center; border-radius:4px; margin-left:20px"> {{message }} </span>
+<br><br>
+
+    {% endfor %}
+
+    {% endif %}
+
+ <div id="fcontainer">
+
+  <p>    
+     <div id="ul">
+    {{ form.username.label }}
+     </div>
+
+    {{ form.username }}
+    
+
+  </p>
+
+
+  <p>
+     <div id="p1l">
+    Password
+    </div>
+
+    {{ form.password }} 
+
+
+  </p>
+
+
+    <input type="submit" value="Login" id="sb">
+
+</div>
+<br><br>
+
+<span id="daac"> Don't have account <a href="{% url 'signup' %}"> Signup</a></span>
+<br><br>
+</form>
+
+<br><br><br>
+
+{% endblock %}

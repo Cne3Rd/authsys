@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> Anything Computer </title>
+
+ <!-- Custom Style -->
+
+  <link rel="stylesheet" type="text/css" href=" {% static 'blog/css/style.css' %} ">
+  <link rel="stylesheet" type="text/css" href=" {% static 'users/css/auth.css' %} ">
+  <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div id="navbar">
+    <span id="header">Acomputer </span>
+    <button id="container" onclick="toggleNav()">
+      <div id="nav">
+        <ul>
+          <li class="l1"></li>
+          <li class="l2"></li>
+          <li class="l3"></li>
+        </ul>
+      </div>
+    </button>
+
+    <div id="submenu">
+        
+        <ul>
+    {% if user.is_authenticated %}
+          <li><a href="https://n33ds0n.github.io" id="hme" target="_blank">checkout</a></li>
+          <li><a href="/account/logout" class="bmc" target="__blank">Logout</a></li>
+    {% else %}
+          <li><a href=" {% url 'login' %} " target="_blank">Login</a></li>
+          <li><a href=" {% url 'signup' %} " target="_blank">SignUp</a></li>
+    {% endif %}
+        </ul>
+    </div>
+  </div>
+
+
+  <img src=" {% static 'blog/images/trigger.jpg' %} " width="100%" height="300px">
+  <br><br></br></br>
+
+{% block content %}	
+
+
+{% endblock %}
+
+</br>
+
+<div id="end">
+  <footer>
+
+    <p id="ft">Anything Computer&copy2021<p>
+
+  </footer>
+</div>
+<br>
+  <!-- Custom Script -->
+  <script type="text/javascript" src=" {% static 'blog/javascript/main.js' %} "></script>
+</body>
+
+</html>
